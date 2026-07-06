@@ -32,7 +32,7 @@ def test_three():
         print(alert)
 
 def raw():
-    response = requests.get(r'https://api.weather.gov/alerts/active?zone=TXC329') #TXC329
+    response = requests.get(r'https://api.weather.gov/alerts/active?zone=ORZ023') #TXC329
     data = response.json()
 
     try:
@@ -42,3 +42,9 @@ def raw():
         m.save(out_file)
     except:
         print("NO GEOMETRY IN THE API RESPONSE\n\nQUITTING..")
+
+def full_test():
+    core_response = requests.get(r'https://api.weather.gov/alerts/active?area=OR') # area=OR
+    core_data = core_response.json()
+
+    print(core_data)
